@@ -6,7 +6,6 @@ from PyQt5.QtGui import QIcon
 class Calculator(QWidget):
     def __init__(self):
         super().__init__()
-        
         self.initUI()
 
     def initUI(self):
@@ -19,24 +18,25 @@ class Calculator(QWidget):
         self.btn2 = QPushButton('Clear', self)
         self.btn2.clicked.connect(self.clearMessage)
 
-        hbox = QHBOxLayout()
+        hbox = QHBoxLayout()
         hbox.addStretch(1)
         hbox.addWidget(self.btn1)
         hbox.addWidget(self.btn2)
-        vbox = QVBoxLAyout()
+        
+        vbox = QVBoxLayout()
         vbox.addWidget(self.te1)
-
         vbox.addLayout(hbox)
         vbox.addStretch(1)
 
         self.setLayout(vbox)
+        
         self.setWindowTitle('calculator')
         self.setWindowIcon(QIcon('icon.png'))
         self.resize(256, 256)
-        self.show()
+        self.show() 
 
     def activateMessage(self):
-        self.te1.appendPlainText("Button clicked!')
+        self.te1.appendPlainText('Button clicked!')
 
     def clearMessage(self):
         self.te1.clear()
